@@ -1,0 +1,21 @@
+global:
+  scrape_interval: 5s
+scrape_configs:
+- job_name: prometheus
+  honor_timestamps: true
+  scrape_interval: 15s
+  scrape_timeout: 10s
+  metrics_path: /metrics
+  scheme: http
+  follow_redirects: true
+  static_configs:
+  - targets:
+    - localhost:9090
+- job_name: aula
+  static_configs:
+  - targets:
+    - 192.168.100.56:3030
+- job_name: server
+  static_configs:
+  - targets:
+    - 192.168.100.56:9182
